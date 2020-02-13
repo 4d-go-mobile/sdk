@@ -35,15 +35,13 @@ Then a segue must be created from detail form to the destination one using story
 ```swift
 /// Protocol to provide info on relation
 public protocol RelationInfoUI {
-    /// Relation object data.
-    var relation: Any? { get }
     /// The relation name
     var relationName: String? { get }
     /// The relation format
     var relationFormat: String? { get }
-    /// The inverse relation name.
-    //var inverseRelationName: String? { get } // CLEAN to remove
 
+    /// Relation object data.
+    var relation: Any? { get }
     /// Add action to launch segue.
     var addRelationSegueAction: Bool { get }
 }
