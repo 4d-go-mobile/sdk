@@ -17,7 +17,7 @@ The `sender` is the user interface view that trigger the transition.
 This `sender` must provide the relation name by implementing the protocol [`RelationInfoUI`](#relationui-code)
 
 
-> If this `sender` is a button (`UIButton`) or any `UIControl` then nothing to do, all is already implemented. But for a bustom view you must implement it.
+> If this `sender` is a button (`UIButton`) or any `UIControl` then nothing to do, all is already implemented. But for a custom view, like a labrl, you must implement it.
 
 ### In storyboards
 
