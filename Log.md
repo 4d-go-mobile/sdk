@@ -33,6 +33,19 @@ logger.warning("a warning message")
 
 In Settings.plist there is property log.writeToFile to defined log name. default debug.log
 
+### auto rotating
+
+if a log is bigger than maxSize (default 1_048_576 ) , the file is splitted and suffixed by date
+
+maxSize could be customized with log.maxFileSize
+
+If there is too much log, we remove it. log.maxLogFiles (default: 10 )
+
+Desactivate autorotage log.autorotate = false
+
+## log to apple log
+
+log.appleSystem = YES in Settings.plist
 
 ## Formatting 
 
@@ -67,4 +80,13 @@ no prefix
                 prefixes[.warning] = "☢️"
                 prefixes[.error] = "🔴"
                 prefixes[.severe] = "⚫"
-                ```
+```
+
+## message customizing in settings.plist
+
+log.showThreadName  
+log.showLevel 
+log.showFileNames
+log.showLineNumbers 
+log.showFunctionName
+log.showDate 
