@@ -1,5 +1,5 @@
 
-This commit hook allow to not commit file with only change on line 
+This pre-commit hook allow to not commit file with only change on line 
 
 ```swift
 //  Created by <author> on <date>
@@ -28,4 +28,14 @@ do
 	 git checkout HEAD -- "$file" # reset this file, no need to update date only
   fi
 done
+```
+
+## where to put?
+
+in `.git/hook/pre-commit` file. must be executable (chmod +x)
+
+or in a custom folder like `.githook`(maybe already there)
+and configure with command 
+```
+git config core.hooksPath .githooks
 ```
