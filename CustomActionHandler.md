@@ -17,8 +17,30 @@ $0:=New object("success"; False; "statusText"; "My warning/error message to disp
 
 For that you must provide a swift code, the action handler, which implement the protocol `ActionResultHandler`.
 
-There is two way to do it, implement in `AppDelegate` or using an injected [`ApplicationService`]()
+There is two way to do it, implement in `AppDelegate` or using an injected [`ApplicationService`](ApplicationService.md)
 
+### Simple example
+
+```swift
+import QMobileAPI
+import SwiftyJSON
+
+extension AppDelegate: ActionResultHandler {
+   func handle(result: ActionResult, for action: Action, from: ActionUI, in context: ActionContext) -> Bool {
+        let json = result.json
+        if json["doSomething"].boolValue {
+            // if response containts "doSomething": true 
+            // your code here
+            return true // yes I handle the action
+        }
+        return false // no I do not care about the action
+    }
+}
+```
+
+```4d
+$0:=New object("success";True;"doSomething";True)
+```
 
 ### Full example 
 
