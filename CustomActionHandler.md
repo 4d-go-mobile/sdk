@@ -39,6 +39,8 @@ extension AppDelegate: ActionResultHandler {
 }
 ```
 
+in db method
+
 ```4d
 $0:=New object("success";True;"doSomething";True)
 ```
