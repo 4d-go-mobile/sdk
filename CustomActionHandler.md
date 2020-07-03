@@ -23,6 +23,7 @@ There is two way to do it, implement in `AppDelegate` or using an injected [`App
 
 ```swift
 import QMobileAPI
+import QMobileUI
 import SwiftyJSON
 
 extension AppDelegate: ActionResultHandler {
@@ -54,6 +55,7 @@ import Alamofire
 import SwiftMessages
 
 import QMobileAPI
+import QMobileUI
 
 extension AppDelegate: ActionResultHandler {
 
