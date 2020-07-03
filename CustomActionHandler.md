@@ -61,7 +61,7 @@ extension AppDelegate: ActionResultHandler {
 
     fileprivate func doNetworkRequest(_ urlString: String, _ step: TimeInterval) {
         /*data request */_ = AF.request(urlString).responseJSON { response in
-            guard let json = try? JSON(data: response.data!) else {
+            guard let data = response.data, let json = try? JSON(data: data) else {
                 logger.warning("Failed to decode JSON data from \(urlString)")
                 return
             }
