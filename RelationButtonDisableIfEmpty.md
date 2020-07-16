@@ -11,7 +11,7 @@ Some buttons disabled if there is no data to display if you touch the button (no
 
 ### First your button appareance
 
-Select "disable" state and choose an other color for test or/and for background
+Select "disable" state and choose an other color for text or/and for background
 
 For instance
 
