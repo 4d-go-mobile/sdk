@@ -20,9 +20,15 @@ import Eureka
 
 extension AppDelegate: ActionParameterCustomFormatRowBuilder {
     func buildActionParameterCustomFormatRow(key: String, format: String, onRowEvent eventCallback: @escaping OnRowEventCallback) -> ActionParameterCustomFormatRowType? {
+        // According to format string (could be a switch)
         if format == "textDate" {
-            return DateRow(key).onRowEvent(eventCallback)
+            // create a row
+            let row = DateRow(key)
+            row.dateFormatter = DateFormatter.shortDate
+            // return it
+            return row.onRowEvent(eventCallback) // do not forget to map event to callback
         }
+        // do nothing for unknown format (or log it)
         return nil
     }
 }
