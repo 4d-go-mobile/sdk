@@ -1,3 +1,4 @@
-# deep into the iOS sdk 
+# SDK
 
-[Relation User Interface](RelationInfoUI.md)
+[Relation User Interface](docs/RelationInfoUI.md)
+[Log](docs/Log.md)
