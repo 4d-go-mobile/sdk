@@ -4,9 +4,11 @@ Some throuth about OTP to authenticate with 4d go mobile
 
 ## What we need
 
-- server side code to generate OTP code and valide it : https://github.com/mesopelagique/OTP (bugged for some 32bite encoding)
-- a way store/retrieve or regenerate the OTP secret by user to be able to check the code send later
-- (mobile app) client side code to open a "form" to enter the otp and re-send the authentication request with this otp
+* server side code to generate OTP code and valide it : https://github.com/mesopelagique/OTP (bugged for some 32bite encoding)
+* a way store/retrieve or regenerate the OTP secret by user to be able to check the code send later
+* (mobile app) client side code to open a "form" to enter the otp and re-send the authentication request with this otp
+  * it could be a custom login form
+  * or we could integrate it to default login form 
 
 ## Workflow to login with an OTP
 
