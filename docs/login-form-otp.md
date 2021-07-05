@@ -42,3 +42,23 @@ The user could use it directly to authenticate, no need each time to send new OT
 ## Thing to verify
 
 - [ ] Is `$0.verify:=True` workflow allow us to enter two times in `On Mobile Authentication` or we must do another web entry point to verify the code
+
+
+## Graph
+
+```mermaid
+sequenceDiagram
+    Mobile->>4D: authenticate with email
+ 
+    4D->>Mail: send OTP code
+    4D->>Mobile: success but verify with OTP code
+    Mail->>Mobile: Copy code
+    Mobile->>4D: authenticate with email + code
+    Note right of 4D: Verify code
+    4D->>Mobile: authorized or not (`success`)
+```
+
+to visualize 
+- chrome extension https://chrome.google.com/webstore/detail/github-%2B-mermaid/goiiopgdnkogdbjmncgedmgpoajilohe/related
+- vscode extension https://marketplace.visualstudio.com/items?itemName=vstirbu.vscode-mermaid-preview
+- ...
