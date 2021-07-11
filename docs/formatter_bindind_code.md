@@ -139,5 +139,25 @@ For other type of data, the swift extension must replace `: String?` by associat
         print("do something")
     }
 
+```
 
+#### simple tag gesture on all row
 
+```swift
+ @objc dynamic public var myNewFormat: String? {
+        get {
+            return self.text // or if possible make reverse format
+        }
+        set {
+            if self.gestureRecognizers.isEmpty {
+                let gesture = UITapGestureRecognizer(target: self, action: #selector(myNewFormatAction(_:)))
+                self.addGestureRecognizer(gesture)
+            }
+            self.text = newValue
+            self.isUserInteractionEnabled = !(self.text?.isEmpty ?? true)
+        }
+    }
+    @objc func myNewFormatAction(_ sender: UITapGestureRecognizer) {
+        print("do something")
+    }
+```
