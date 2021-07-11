@@ -62,7 +62,14 @@ the formatter define a `manifest.json` for the format
 }
 ```
 
-### some example
+If you choose `text` as `type`, it will be visible on format menu for 4D alpha/text field 
+
+For other type of data, the swift extension must replace `: String?` by associated type
+- date: : `Date?`
+- number: `NSNumber?`
+
+### some examples
 
 - [formatter-Url](https://github.com/4d-go-mobile/formatter-Url)
 - [formatter-Mail](https://github.com/4d-go-mobile/formatter-Mail)
+- [formatter-Phone](https://github.com/4d-go-mobile/formatter-Phone)
