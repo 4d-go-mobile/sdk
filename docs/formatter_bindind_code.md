@@ -56,7 +56,7 @@ the formatter define a `manifest.json` for the format
 
 ```json
 {
-	"name": "myFormat",
+	"name": "myNewFormat",
 	"binding": "myNewFormat",
 	"type" : "text"
 }
