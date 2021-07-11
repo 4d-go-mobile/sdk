@@ -12,7 +12,7 @@ By default we bind on `text`, and we could find in storyboard generated when sel
 
 | KeyPath | Type | Value | 
 | -| - | - | 
-| bindTo.record.<database field name> | String | text |
+| `bindTo.record.<database field name>` | String | text |
 
 ## Custom format binding
 
@@ -50,7 +50,7 @@ and to make storyboard bind on your property like that
 
 | KeyPath | Type | Value | 
 | - | - | - | 
-| bindTo.record.<database field name> | String | myNewFormat |
+| `bindTo.record.<database field name>` | String | myNewFormat |
 
 the formatter define a `manifest.json` for the format
 
