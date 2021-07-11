@@ -73,3 +73,71 @@ For other type of data, the swift extension must replace `: String?` by associat
 - [formatter-Url](https://github.com/4d-go-mobile/formatter-Url)
 - [formatter-Mail](https://github.com/4d-go-mobile/formatter-Mail)
 - [formatter-Phone](https://github.com/4d-go-mobile/formatter-Phone)
+
+#### adding right button
+
+```swift
+    fileprivate static let myButtonTag = 789 // fast way to retrieve object, another way is to look at subview type and content
+
+    @objc dynamic public var myFormatWithButton: String? {
+        get {
+            return self.text // or if possible make reverse format
+        }
+        set {
+            // add button if not exists
+            if self.viewWithTag(UILabel.myButtonTag) == nil {
+                let button = UIButton(primaryAction: UIAction(title: "", image: UIImage(systemName: "phone"), identifier: UIAction.Identifier("myNewFormat"),  state: .on, handler: { action in
+                    
+                    // do something here on touch
+                }))
+                //imageView.tintColor = .background
+                button.tag = UILabel.myButtonTag
+                self.addSubview(button)
+                button.translatesAutoresizingMaskIntoConstraints = false
+                self.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+                self.rightAnchor.constraint(equalTo:button.rightAnchor, constant: 4).isActive = true
+            }
+            self.text = newValue
+            // enable or not the button according to content for instance
+            (self.viewWithTag(789) as? UIButton)?.isEnabled = !(self.text?.isEmpty ?? true)
+        }
+    }
+    
+ ```
+
+#### adding an image and a tag gesture
+
+```swift
+    @objc dynamic public var myNewFormat: String? {
+        get {
+            return self.text // or if possible make reverse format
+        }
+        set {
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(myNewFormatAction(_:)))
+            // add button if not exists
+            if self.viewWithTag(759) == nil {
+                let imageView = UIImageView(image: UIImage(systemName: "phone"))
+                imageView.addGestureRecognizer(gesture)
+                imageView.tag = 759
+                imageView.isUserInteractionEnabled = false
+                self.addSubview(imageView)
+                imageView.translatesAutoresizingMaskIntoConstraints = false
+                self.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
+                self.rightAnchor.constraint(equalTo:imageView.rightAnchor, constant: 4).isActive = true
+            }
+            self.text = newValue
+        
+            if let imageView = (self.viewWithTag(789) as? UIImageView) {
+                let isEmpty = (self.text?.isEmpty ?? true)
+                imageView.isUserInteractionEnabled = !isEmpty
+                // could change optionnaly color or image tint according to text value
+                imageView.tintColor = isEmpty ? .systemGray5: .background
+            }
+        }
+    }
+    @objc func myNewFormatAction(_ sender: UITapGestureRecognizer) {
+        print("do something")
+    }
+
+
+
