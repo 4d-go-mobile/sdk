@@ -8,7 +8,7 @@
 
 UI for fields are by default only `UILabel`, a swift graphical component to display text by filling `text` or `attributedText` field.
 
-By default we bind on `text`, and we could find in storyboard generated this `User Defined Runtime Attributes`
+By default we bind on `text`, and we could find in storyboard generated when selecting the label this `User Defined Runtime Attributes`
 
 | KeyPath | Type | Value | 
 | -| - | - | 
