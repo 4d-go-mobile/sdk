@@ -26,4 +26,4 @@ Case of
 
 Then implement the vcard export in your web endpoint, for instance 4DAction `vCardExport` method
 
-You could use [PIM](https://github.com/mesopelagique/PIM) to create a vcard and send it
+You could use [PIM](https://github.com/mesopelagique/PIM) to create a vcard from your data and according to contact primary key, and send it to mobile app which open the url
