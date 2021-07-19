@@ -20,7 +20,7 @@ Case of
 Case of
 : ($action.name="exportVcard")
   $contact:=$1.context.entity.primaryKey
-  $0.openURL:="https://myserver/4DAction/vCardExport/?id="+String(contact)
+  $0.openURL:="https://myserver/4DAction/vCardExport/?id="+String(contact) // create here more complex url maybe with temporary id, to not allow a full dump
 
 ```
 
