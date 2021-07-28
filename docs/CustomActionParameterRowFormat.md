@@ -145,3 +145,129 @@ class MyLocationViewController: UIViewController, CLLocationManagerDelegate {
 
 }
 ```
+
+### Sample with choice dependent of other choice
+
+![ChoiceShared](ChoiceShared.gif)
+
+```swift
+import UIKit
+import ContactsUI
+
+import Eureka
+import QMobileUI
+
+// name of the format
+fileprivate let kChoiceShared = "choiceShared"
+
+enum ChoiceShared: String {
+    case choice1
+    case choice2
+    case choice3
+    
+    var child: Self? {
+        switch self {
+        case .choice1:
+            return .choice2
+        case .choice2:
+            return .choice3
+        case .choice3:
+            return nil
+        }
+    }
+}
+
+extension Eureka.Form {
+    func row(by: ChoiceShared) -> ChoiceSharedContactRow? {
+        return self.rowBy(tag: by.rawValue) as? ChoiceSharedContactRow
+    }
+}
+
+extension ChoiceShared {
+    
+    func options(parent: String?) -> [String] {
+        switch self {
+        case .choice1:
+            return ["a", "b", "c", "d"]
+        case .choice2:
+            switch parent ?? "" {
+            case "a":
+                return ["1", "2", "3", "4"]
+            case "b":
+                return ["2", "3", "4", "5"]
+            case "c":
+                return ["5", "6", "7", "8"]
+            case "d":
+                return ["10", "20", "30", "40"]
+            default:
+                return []
+            }
+        case .choice3:
+            switch parent ?? "" {
+            case "1" , "2":
+                return ["α", "β"]
+            case "3", "4", "5":
+                return ["γ","δ"]
+            case "6", "7", "8":
+                return ["ε","ζ"]
+            case "10":
+                return ["γ","δ", "ε","ζ"]
+            case "20":
+                return ["γ","δ"]
+            case "30", "40":
+                return ["γ","δ"]
+            default:
+                return []
+            }
+        }
+    }
+}
+
+// Create an Eureka row for the format
+final class ChoiceSharedContactRow: _PushRow<PushSelectorCell<String>>, RowType {
+
+    required public init(tag: String?) {
+        super.init(tag: tag)
+    }
+
+}
+ 
+@objc(ChoiceSharedRowService)
+class ChoiceSharedRowService: NSObject, ApplicationService, ActionParameterCustomFormatRowBuilder {
+    @objc static var instance: ChoiceSharedRowService = ChoiceSharedRowService()
+    override init() {}
+    func buildActionParameterCustomFormatRow(key: String, format: String, onRowEvent eventCallback: @escaping OnRowEventCallback) -> ActionParameterCustomFormatRowType? {
+        if format == kChoiceShared {
+            let choiceRow = ChoiceSharedContactRow(key)
+            
+            guard let choiceShared = ChoiceShared(rawValue: key) else {
+                logger.warning("Choice unknown key \(key)")
+                return nil
+            }
+            if ChoiceSharedContactRow.defaultCellUpdate == nil {
+                ChoiceSharedContactRow.defaultCellUpdate = { cell, row in
+                    if let tag = row.tag, let choiceShared = ChoiceShared(rawValue: tag) {
+                        logger.info("Row updated \(choiceShared) with value \(row.value ?? "<none>")")
+                        /*DispatchQueue.main.async {
+                            logger.info("sync Row updated \(choiceShared) with value \(row.value ?? "<none>")")*/
+                            if let child = choiceShared.child, let rowChild = cell.formViewController()?.form.row(by: child) {
+                                let options = child.options(parent: row.value)
+                                rowChild.options = options
+                                if rowChild.value == nil || !options.contains(rowChild.value!) { //swiftlint:disable:this force_cast
+                                    rowChild.value = "" // or rowChild.options?.first force?
+                                    logger.info("Row set \(child) with value \(rowChild.value ?? "<none>")")
+                                }
+                            }
+                       /* }*/
+                    }
+                }
+            }
+            choiceRow.options = choiceShared.options(parent: nil)
+            
+            return choiceRow.onRowEvent(eventCallback)
+        }
+        return nil
+    }
+}
+
+
