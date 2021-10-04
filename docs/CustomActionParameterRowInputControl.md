@@ -1,14 +1,13 @@
 
-# CustomActionParameterRowFormat
+# Custom Action Parameter Row InputControl
 
 When opening an action form, each action parameter have a `Row` from `Eureka` framework
 
 Row are builded according first to `format` if defined, otherwise using the `type`
 
-
 ## But if you want to have custom row and the SDK do not provide it functionnality? (18R6)
 
-For that you must provide a swift code,  which implement the protocol `ActionParameterCustomFormatRowBuilder` to build a `Row` according to `format`.
+For that you must provide some native code(swift on iOS),  which implement the protocol `ActionParameterCustomFormatRowBuilder` to build a `Row` according to `format`.
 
 There is two way to do it, implement in `AppDelegate` or using an injected [`ApplicationService`](ApplicationService.md)
 
