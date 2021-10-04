@@ -3,9 +3,15 @@
 
 When opening an action form, each action parameter have a `Row` from `Eureka` framework
 
-Row are builded according first to `format` if defined, otherwise using the `type`
+Rows are builded according first to `format` if defined, otherwise using the `type` (data type, like text, bool etc...)
 
-## But if you want to have custom row and the SDK do not provide it functionnality? (18R6)
+So here we will see how to handle a specific "format" value like some provided in the gallery
+
+https://4d-go-mobile.github.io/gallery/#/type/input-control
+
+You could also take gallery example has template.
+
+## But if you want to have custom row and the SDK do not provide it functionnality?
 
 For that you must provide some native code(swift on iOS),  which implement the protocol `ActionParameterCustomFormatRowBuilder` to build a `Row` according to `format`.
 
