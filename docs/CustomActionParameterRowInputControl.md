@@ -30,7 +30,7 @@ You must provide some swift code for instance defined in path `ios/Sources/Forms
 
 Action parameter widget are based on third party [`Eureka`](https://github.com/xmartlabs/Eureka) framework.
 
-The code could be divided into to parts
+The code could be divided into two parts:
 
 #### According to the input control name provide an Eureka row
 
