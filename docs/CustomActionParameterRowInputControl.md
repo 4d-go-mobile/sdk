@@ -44,7 +44,7 @@ import Eureka
 
 @objc(YourNameRowService)
 class YourNameRowService: NSObject, ApplicationService, ActionParameterCustomFormatRowBuilder {
-    @objc static var instance: PhoneContactRowService = PhoneContactRowService()
+    @objc static var instance: YourNameRowService = YourNameRowService()
     override init() {}
     func buildActionParameterCustomFormatRow(key: String, format: String, onRowEvent eventCallback: @escaping OnRowEventCallback) -> ActionParameterCustomFormatRowType? {
         if format == "textDate" {
