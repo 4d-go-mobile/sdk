@@ -1,31 +1,52 @@
 
-# Custom Action Parameter Row InputControl
+# Create Custom Input Control for Action Parameter
 
-When opening an action form, each action parameter have a `Row` from `Eureka` framework
+Here we will see how to create it with iOS native code like we provide in [gallery](
+https://4d-go-mobile.github.io/gallery/#/type/input-control)
 
-Rows are builded according first to `format` if defined, otherwise using the `type` (data type, like text, bool etc...)
+> 💡 You could take one from gallery has starter template
 
-So here we will see how to handle a specific "format" value like some provided in the gallery
+## Content of input control project
 
-https://4d-go-mobile.github.io/gallery/#/type/input-control
+### manifest.json
 
-You could also take gallery example has template.
+First the manifest describe the name, and the type of data we want to send to server, and some configuration to request code injection
 
-## But if you want to have custom row and the SDK do not provide it functionnality?
+```json
+{
+    "name": "yourName",
+    "type": "text",
+    "inject": true,
+    "capabilities": {
+      "service":  "YourNameRowService"
+    }
+  }
+}
+```
 
-For that you must provide some native code(swift on iOS),  which implement the protocol `ActionParameterCustomFormatRowBuilder` to build a `Row` according to `format`.
+### native code
 
-There is two way to do it, implement in `AppDelegate` or using an injected [`ApplicationService`](ApplicationService.md)
+You must provide some swift code for instance defined in path `ios/Sources/Forms/Actions/YourNameRow.swift`
 
-### Simple example
+Action parameter widget are based on third party [`Eureka`](https://github.com/xmartlabs/Eureka) framework.
+
+The code could be divided into to parts
+
+#### According to the input control name provide an Eureka row
+
+For that you must create the `YourNameRowService` class, which implement the protocol `ActionParameterCustomFormatRowBuilder` to build a `Row` according to `format` value, the one defined in manifest.json.
+
+Here an example using standard Eureka DataRow but with a provided date formatter
 
 ```swift
 import QMobileUI
 import Eureka
 
-extension AppDelegate: ActionParameterCustomFormatRowBuilder {
+@objc(YourNameRowService)
+class YourNameRowService: NSObject, ApplicationService, ActionParameterCustomFormatRowBuilder {
+    @objc static var instance: PhoneContactRowService = PhoneContactRowService()
+    override init() {}
     func buildActionParameterCustomFormatRow(key: String, format: String, onRowEvent eventCallback: @escaping OnRowEventCallback) -> ActionParameterCustomFormatRowType? {
-        // According to format string (could be a switch)
         if format == "textDate" {
             // create a row
             let row = DateRow(key)
@@ -39,22 +60,34 @@ extension AppDelegate: ActionParameterCustomFormatRowBuilder {
 }
 ```
 
-in project JSON, in your action parameter
+#### Create a custom Eureka row
+
+The best is to read [Eureka documentation](https://github.com/xmartlabs/Eureka)
+
+
+##### some example with location
+
+I want to add a button to get user location. We need to request it. 
 
 ```json
-  .., "parameters": [.., {"name":"ADate", "type": "text", "format": "textDate"}]
+{
+    "name": "mylocation",
+    "type": "text",
+    "inject": true,
+    "capabilities": {
+          "location": true,
+          "service": "MyLocationRowService"
+    }
+}
 ```
-
-### More complexe example
-
-I want to add a button to get user location. We need to request it. Here format name to put in action json is "mylocation"
 
 ```swift
 import QMobileUI
 import Eureka
 import CoreLocation
 
-extension AppDelegate: ActionParameterCustomFormatRowBuilder {
+@objc(MyLocationRowService)
+class MyLocationRowService: NSObject, ApplicationService, ActionParameterCustomFormatRowBuilder {
 
     func buildActionParameterCustomFormatRow(key: String, format: String, onRowEvent eventCallback: @escaping OnRowEventCallback) -> ActionParameterCustomFormatRowType? {
         if format == "mylocation" {
@@ -151,7 +184,7 @@ class MyLocationViewController: UIViewController, CLLocationManagerDelegate {
 }
 ```
 
-### Sample with choice dependent of other choice
+##### Sample with choice dependent on other choices
 
 ![ChoiceShared](ChoiceShared.gif)
 
