@@ -88,6 +88,7 @@ import CoreLocation
 
 @objc(MyLocationRowService)
 class MyLocationRowService: NSObject, ApplicationService, ActionParameterCustomFormatRowBuilder {
+    @objc static var instance: MyLocationRowService = MyLocationRowService()
 
     func buildActionParameterCustomFormatRow(key: String, format: String, onRowEvent eventCallback: @escaping OnRowEventCallback) -> ActionParameterCustomFormatRowType? {
         if format == "mylocation" {
