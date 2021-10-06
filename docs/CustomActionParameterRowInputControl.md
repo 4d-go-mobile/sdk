@@ -20,7 +20,6 @@ First the manifest describe the name, and the type of data we want to send to se
     "capabilities": {
       "service":  "YourNameRowService"
     }
-  }
 }
 ```
 
