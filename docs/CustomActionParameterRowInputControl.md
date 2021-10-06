@@ -34,7 +34,7 @@ The code could be divided into two parts:
 
 #### According to the input control name provide an Eureka row
 
-For that you must create the `YourNameRowService` class, which implement the protocol `ActionParameterCustomFormatRowBuilder` to build a `Row` according to `format` value, the one defined in manifest.json.
+For that you must create the `YourNameRowService` class, which implement the protocol `ActionParameterCustomFormatRowBuilder` to provide an Eureka `Row` according to the passed `format` value, the one defined in manifest.json.
 
 Here an example using standard Eureka DataRow but with a provided date formatter
 
@@ -47,8 +47,8 @@ class YourNameRowService: NSObject, ApplicationService, ActionParameterCustomFor
     @objc static var instance: YourNameRowService = YourNameRowService()
     override init() {}
     func buildActionParameterCustomFormatRow(key: String, format: String, onRowEvent eventCallback: @escaping OnRowEventCallback) -> ActionParameterCustomFormatRowType? {
-        if format == "textDate" {
-            // create a row
+        if format == "yourName" { // here name from manifest.json
+            // create the row
             let row = DateRow(key)
             row.dateFormatter = DateFormatter.shortDate
             // return it
