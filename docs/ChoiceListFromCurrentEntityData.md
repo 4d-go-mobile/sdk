@@ -5,13 +5,22 @@
 
 - The purpose is for input control with choice list, to show a list of data stored inside the current entity, allowing to have different choice list by entity
 
-# Setting to activate the feature
+# How to
 
 ## Database content
 
 For entities, an object field must contain the choice list
 
 > 🚧 show some 4D code to fil it
+
+```4d
+var $entity: cs.ATable
+...
+$entity.aChoiceObjectField:=New Object(\
+"One"; "1";\
+"Two"; "2"\
+)
+```
 
 ## Input control definition
 
