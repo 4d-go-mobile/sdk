@@ -16,8 +16,8 @@ For entities, an object field must contain the choice list
 var $entity: cs.ATable
 ...
 $entity.aChoiceObjectField:=New Object(\
-"One"; "1";\
-"Two"; "2"\
+"One"; 1;\
+"Two"; 2\
 )
 ```
 > 🚧 show some other 4D code to fill it (if possible)
