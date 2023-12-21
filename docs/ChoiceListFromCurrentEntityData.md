@@ -11,7 +11,6 @@
 
 For entities, an object field must contain the choice list
 
-> 🚧 show some 4D code to fil it
 
 ```4d
 var $entity: cs.ATable
@@ -21,6 +20,7 @@ $entity.aChoiceObjectField:=New Object(\
 "Two"; "2"\
 )
 ```
+> 🚧 show some other 4D code to fill it (if possible)
 
 ## Input control definition
 
