@@ -1,0 +1,72 @@
+#  ChoiceListFromCurrentEntityData
+
+> [!CAUTION]
+> Not released, just a specification
+
+- The purpose is for input control with choice list, to show a list of data stored inside the current entity, allowing to have different choice list by entity
+
+# Setting to activate the feature
+
+## Database content
+
+For entities, an object field must contain the choice list
+
+> 🚧 show some 4D code to fil it
+
+## Input control definition
+
+The input control manifest.json contains a "choiceList" key [as usual for choice list filled from data store](https://developer.4d.com/go-mobile/docs/project-definition/actions#dynamic-choice-lists), but contain a  new field "currentEntity" set to true.
+
+"field" will be used to specify the name of the field where choice list are stored. 
+
+("dataClass" is not mandatory, but could help to filter later, and do not propose this input control for an other table)
+
+```json
+{
+    "name": "MyChoiceList",
+    "type": [
+        "text"
+    ],
+    "format":"push",
+
+    "choiceList": {
+        "dataSource": {
+            "field": "aChoiceObjectField",
+            "dataClass": "ATable",
+            "currentEntity": true
+        }
+    }
+}
+```
+
+##  Android
+
+Inside `app/src/main/assets/inputControls.json` the input control json definition is copyed, so we could have
+
+```json
+[ ...
+  {
+    "type": [
+      "text"
+    ],
+    "choiceList": {
+      "dataSource": {
+        "field": "aChoiceObjectField",
+        "dataClass": "ATable",
+        "currentEntity": true
+      }
+    },
+    "name": "MyChoiceList",
+    "format": "push"
+  }
+
+...]
+```
+
+##  iOS
+
+Inside `???.Storyboard`
+
+```xml
+
+```
