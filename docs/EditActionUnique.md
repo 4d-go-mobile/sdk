@@ -11,7 +11,7 @@
 
 ##  MobileProject
 
-
+> 🚧 how to inject inside mobile app for new projet?
 
 ##  Android
 
