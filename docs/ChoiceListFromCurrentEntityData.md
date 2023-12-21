@@ -23,7 +23,7 @@ The input control manifest.json contains a "choiceList" key [as usual for choice
 
 ```json
 {
-    "name": "MyChoiceList",
+    "name": "myChoiceList",
     "type": [
         "text"
     ],
@@ -56,11 +56,26 @@ Inside `app/src/main/assets/inputControls.json` the input control json definitio
         "currentEntity": true
       }
     },
-    "name": "MyChoiceList",
+    "name": "myChoiceList",
     "format": "push"
   }
 
 ...]
+```
+
+then as usual for action, inside actions.json, the corresponding action parameter contains the "source"
+
+```json
+...
+{
+    "name": "myParameter",
+    "label": "New Parameter",
+    "shortLabel": "New",
+    "type": "string",
+    "format": "/push",
+    "source": "/myChoiceList"
+}
+...
 ```
 
 ##  iOS
