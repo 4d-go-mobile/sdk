@@ -29,3 +29,9 @@ Inside `Settings/Settings.plist`
 	<key>action.editAreUnique</key>
 	<true/>
 ```
+
+
+## More
+
+> :bulb: We could imagine have some definition by action, not only "edit" one. For that for instance a new boolean "isUnique" could be in the future added to the action json.
+> 
