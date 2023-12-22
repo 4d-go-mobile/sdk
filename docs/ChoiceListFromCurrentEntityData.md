@@ -9,8 +9,11 @@
 
 ## Database content
 
-For entities, an object field must contain the choice list
+For entities, an object field must contain the choice list as key value
+- key is the display value
+- value is the value send to server and receive in database method "On Mobile App Action"
 
+We could fill using an object
 
 ```4d
 var $entity: cs.ATable
@@ -20,6 +23,7 @@ $entity.aChoiceObjectField:=New Object(\
 "Two"; 2\
 )
 ```
+
 > 🚧 show some other 4D code to fill it (if possible)
 
 ## Input control definition
