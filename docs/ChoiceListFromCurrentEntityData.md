@@ -76,7 +76,7 @@ Inside `app/src/main/assets/inputControls.json` the input control json definitio
 ...]
 ```
 
-then as usual for action, inside actions.json, the corresponding action parameter contains the `source`
+then as usual for action, inside actions.json, the corresponding action parameter contains the `source` (nothing change here)
 
 ```json
 ...
@@ -95,7 +95,7 @@ then as usual for action, inside actions.json, the corresponding action paramete
 
 Inside `???ListForm.Storyboard` and `???DetailForm.Storyboard` (xml files)
 
-Inside user defined attributes of view controller or list view, if there is actions for the table/dataclass or the entity , there is a key `actions` that contains the json of corresponding actions (encoded for XML)
+Inside user defined attributes of view controller or list view, if there is actions for the table/dataclass or the entity , there is a key `actions` that contains the json of corresponding actions with input control definition injected in `choiceList` key (encoded for XML)
 
 ```xml
 <userDefinedRuntimeAttribute type="string" keyPath="actions">
