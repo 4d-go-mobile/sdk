@@ -99,6 +99,6 @@ Inside user defined attributes of view controller or list view, if there is acti
 
 ```xml
 <userDefinedRuntimeAttribute type="string" keyPath="actions">
-                            <mutableString key="value">{"actions":[ ... {"name":"anAction","scope":"currentEntity", ... ,"parameters":[{"name":"newParameter","label":"New Parameter","shortLabel":"New","type":"string","choiceList":{"dataSource":{"dataClass":"ATable","field":"aChoiceObjectField","currentEntity":true}}}...]}]}</mutableString>
+   <mutableString key="value">{"actions":[ ... {"name":"anAction","scope":"currentEntity", ... ,"parameters":[{"name":"newParameter","label":"New Parameter","shortLabel":"New","type":"string","choiceList":{"dataSource":{"dataClass":"ATable","field":"aChoiceObjectField","currentEntity":true}}}...]}]}</mutableString>
 </userDefinedRuntimeAttribute>
 ```
