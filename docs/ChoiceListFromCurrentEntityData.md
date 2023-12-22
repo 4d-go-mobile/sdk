@@ -28,11 +28,11 @@ $entity.aChoiceObjectField:=New Object(\
 
 ## Input control definition
 
-The input control manifest.json contains a "choiceList" key [as usual for choice list filled from data store](https://developer.4d.com/go-mobile/docs/project-definition/actions#dynamic-choice-lists), but contain a  new field "currentEntity" set to true.
+The input control manifest.json contains a `choiceList` key [as usual for choice list filled from data store](https://developer.4d.com/go-mobile/docs/project-definition/actions#dynamic-choice-lists), but contain a new key `currentEntity` ( and the value must be `true`)
 
-"field" will be used to specify the name of the field where choice list are stored. 
+`field` will be used to specify the name of the field where choice list are stored. (in the exemple `aChoiceObjectField`, see 4d code)
 
-("dataClass" is not mandatory, but could help to filter later, and do not propose this input control for an other table)
+(`dataClass` is not mandatory, but could help to filter later to do not propose this input control for an other table)
 
 ```json
 {
@@ -76,7 +76,7 @@ Inside `app/src/main/assets/inputControls.json` the input control json definitio
 ...]
 ```
 
-then as usual for action, inside actions.json, the corresponding action parameter contains the "source"
+then as usual for action, inside actions.json, the corresponding action parameter contains the `source`
 
 ```json
 ...
@@ -93,8 +93,12 @@ then as usual for action, inside actions.json, the corresponding action paramete
 
 ##  iOS
 
-Inside `???.Storyboard`
+Inside `???ListForm.Storyboard` and `???DetailForm.Storyboard` (xml files)
+
+Inside user defined attributes of view controller or list view, if there is actions for the table/dataclass or the entity , there is a key `actions` that contains the json of corresponding actions (encoded for XML)
 
 ```xml
-
+<userDefinedRuntimeAttribute type="string" keyPath="actions">
+                            <mutableString key="value">{"actions":[ ... {"name":"anAction","scope":"currentEntity", ... ,"parameters":[{"name":"newParameter","label":"New Parameter","shortLabel":"New","type":"string","choiceList":{"dataSource":{"dataClass":"ATable","field":"aChoiceObjectField","currentEntity":true}}}...]}]}</mutableString>
+</userDefinedRuntimeAttribute>
 ```
