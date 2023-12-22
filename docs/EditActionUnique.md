@@ -30,8 +30,6 @@ Inside `Settings/Settings.plist`
 	<true/>
 ```
 
+## If we want to go further
 
-## More
-
-> :bulb: We could imagine have some definition by action, not only "edit" one. For that for instance a new boolean "isUnique" could be in the future added to the action json.
-> 
+> :bulb: We could imagine have some definition by action, not only "edit" one. For that for instance a new boolean "isUnique" could be in the future added to the action json. 
