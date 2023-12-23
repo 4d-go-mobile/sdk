@@ -6,12 +6,13 @@
 - The purpose is to make any  task for an action with the preset `edit` to be unique :
   - If offline, an edit could be in pending task
   - If launch a new edit, intead of creating a new task, the one in pending task will be opened
+    - so data already filled will be displayed 	
 
 # Setting to activate the feature
 
 ##  MobileProject
 
-> 🚧 how to inject inside mobile app for new projet?
+> 🚧 how to inject inside mobile app for new projet? (have a boolean inside mobileapp file, and "4d mobile app" + android project generator must do the following edit
 
 ##  Android
 
