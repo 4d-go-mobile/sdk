@@ -34,3 +34,8 @@ Inside `Settings/Settings.plist`
 ## If we want to go further
 
 > :bulb: We could imagine have some definition by action, not only "edit" one. For that for instance a new boolean "isUnique" could be in the future added to the action json. 
+
+
+## Naming
+
+maybe rename unique to uniqueTask, action has unique task
