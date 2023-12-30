@@ -102,3 +102,7 @@ Inside user defined attributes of view controller or list view, if there is acti
    <mutableString key="value">{"actions":[ ... {"name":"anAction","scope":"currentEntity", ... ,"parameters":[{"name":"newParameter","label":"New Parameter","shortLabel":"New","type":"string","choiceList":{"dataSource":{"dataClass":"ATable","field":"aChoiceObjectField","currentEntity":true}}}...]}]}</mutableString>
 </userDefinedRuntimeAttribute>
 ```
+
+## If we want to go further
+
+Do we manage to unselect value, or let choiceList has a value that mean nothing. I must check on android that we could set not value after setting a value, I am not sure of that.
