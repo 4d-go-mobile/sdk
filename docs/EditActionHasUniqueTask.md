@@ -34,12 +34,18 @@ Inside `Settings/Settings.plist`
 
 ## If we want to go further
 
+### for all type of action (doable quickly)
+
 > :bulb: We could imagine have some definition by action, not only "edit" one. For that for instance a new boolean `hasUniqueTask` could be in the future added to the action json (or if we have time)
 
-### for iOS
+#### for iOS
 
 in storyboards definition inside `userDefinedRuntimeAttribute`
 
-### for android
+#### for android
 
 Inside `app/src/main/assets/actions.json` by action
+
+#### allow to set action task unique in mobile project editor (will not do it)
+
+adding for all in mobile project editor a way to edit project to set true or false by action
