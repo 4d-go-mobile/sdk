@@ -7,7 +7,9 @@
   - If offline, an edit could be in pending task
   - If launch a new edit, instead of creating a new task, the one in pending task will be opened
     - so data already filled will be displayed
-    - and when validating, just register the new data (no new task in pending task list) + waiting to network to come back to send the data to server
+    - and when validating, just register the new data into selected/found task
+	- no new task in pending task list
+  	- waiting on network connection to send the data to server (inside on mobile app action)
 
 # Setting to activate the feature
 
