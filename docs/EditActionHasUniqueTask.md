@@ -45,11 +45,11 @@ Inside `Settings/Settings.plist` add this to activate the feature for an already
 	<true/>
 ```
 
-## If we want to go further
+## Bonus
 
-### for all type of action (doable quickly)
+### for all type of action
 
-We could imagine have some definition by action, not only "edit" one. For that for instance a new boolean `hasUniqueTask` could be added to the action json
+We could have some definition by action, not only the "edit" one. For that a new boolean `hasUniqueTask` could be added to the action json definition
 
 #### for android
 
@@ -59,6 +59,8 @@ Inside `app/src/main/assets/actions.json` by action you could add `hasUniqueTask
 
 in storyboards definition inside `userDefinedRuntimeAttribute`, find your action and edit in the one line json, the `hasUniqueTask` to true
 
-#### allow to set action task unique in mobile project editor (IMPORTANT: will not do it)
+## If we want to go further
+
+### allow to set action task unique in mobile project editor (IMPORTANT: will not do it)
 
 adding for all in mobile project editor a way to edit project to set true or false by action ie. a checkbox
