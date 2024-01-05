@@ -20,9 +20,8 @@ The feature is not for all, so a conf in
 Inside `Mobile Projects/<project name>/project.4dmobileapp` add this to activate the feature
 
 ```json
-	"extra": {
-		"editActionHasUniqueTask": true
-	}
+"extra": {
+	"editActionHasUniqueTask": true
 }
 ```
 
