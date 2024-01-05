@@ -17,13 +17,20 @@ The feature is not for all, so a conf in
 
 ##  MobileProject
 
-maybe a key in mobile app project could be added, not mandatory, but useful if we want to generate new app with this feature, without the need to edit mobile project each time
+Inside `Mobile Projects/<project name>/project.4dmobileapp` add this to activate the feature
 
-> 🚧 how to inject inside mobile app for new projet? (have a boolean inside mobileapp file, and "4d mobile app" + android project generator must do the following edit
+```json
+	"extra": {
+		"editActionHasUniqueTask": true
+	}
+}
+```
+
+⚠️ project must be close, and reopened
 
 ##  Android
 
-Inside `app/src/main/assets/appInfo.json`
+Inside `app/src/main/assets/appInfo.json` add this to activate the feature for an already generated app
 
 ```json
 	"action.edit.hasUniqueTask": true
@@ -31,7 +38,7 @@ Inside `app/src/main/assets/appInfo.json`
 
 ##  iOS
 
-Inside `Settings/Settings.plist`
+Inside `Settings/Settings.plist` add this to activate the feature for an already generated app
 
 ```xml
 	<key>action.edit.hasUniqueTask</key>
@@ -42,16 +49,16 @@ Inside `Settings/Settings.plist`
 
 ### for all type of action (doable quickly)
 
-> :bulb: We could imagine have some definition by action, not only "edit" one. For that for instance a new boolean `hasUniqueTask` could be in the future added to the action json (or if we have time)
-
-#### for iOS
-
-in storyboards definition inside `userDefinedRuntimeAttribute`
+We could imagine have some definition by action, not only "edit" one. For that for instance a new boolean `hasUniqueTask` could be added to the action json
 
 #### for android
 
-Inside `app/src/main/assets/actions.json` by action
+Inside `app/src/main/assets/actions.json` by action you could add `hasUniqueTask` to true
 
-#### allow to set action task unique in mobile project editor (will not do it)
+#### for iOS
 
-adding for all in mobile project editor a way to edit project to set true or false by action
+in storyboards definition inside `userDefinedRuntimeAttribute`, find your action and edit in the one line json, the `hasUniqueTask` to true
+
+#### allow to set action task unique in mobile project editor (IMPORTANT: will not do it)
+
+adding for all in mobile project editor a way to edit project to set true or false by action ie. a checkbox
