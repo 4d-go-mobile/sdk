@@ -25,7 +25,8 @@ Inside `Mobile Projects/<project name>/project.4dmobileapp` add this to activate
 }
 ```
 
-⚠️ project must be close, and reopened
+- ⚠️ project must be close, and reopened
+- :bulb: generated app must have following configuration set 
 
 ##  Android
 
