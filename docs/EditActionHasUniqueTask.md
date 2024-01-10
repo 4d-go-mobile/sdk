@@ -1,8 +1,5 @@
 #  EditActionHasUniqueTask
 
-> [!CAUTION]
-> Not released, just a specification
-
 - The purpose is to make any task for an action with the `preset` key equal to `edit` to be unique :
   - If offline, an edit could be in pending task after validating the action form
   - If launch a new edit, instead of creating a new task, the one in pending task will be opened
