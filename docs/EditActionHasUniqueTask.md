@@ -11,6 +11,10 @@
 	- no new task in pending task list
   	- waiting on network connection to send the data to server (inside on mobile app action)
 
+
+https://github.com/4d-go-mobile/sdk/assets/129385512/4aed67b1-e910-427b-b20e-a7361858e022
+
+
 # Setting to activate the feature
 
 The feature is not for all, so a conf in 
