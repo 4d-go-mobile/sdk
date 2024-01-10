@@ -1,8 +1,5 @@
 #  ChoiceListFromCurrentEntityData
 
-> [!CAUTION]
-> Not released, just a specification
-
 - The purpose is for input control with choice list, to show a list of data stored inside the current entity, allowing to have different choice list by entity
 
 # How to
