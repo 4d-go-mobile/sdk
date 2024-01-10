@@ -106,3 +106,43 @@ Inside user defined attributes of view controller or list view, if there is acti
 ## If we want to go further
 
 Do we manage to unselect value, or let choiceList has a value that mean nothing. I must check on android that we could set not value after setting a value, I am not sure of that.
+
+
+## Demo
+
+With two different entities
+```4d
+var $e : cs.EmployeeEntity
+
+$e:=ds.Employee.new()
+$e.FirstName:="John"
+$e.LastName:="Doe"
+$e.objectField:=New object("1"; "lorem"; "2"; "ipsum")
+$e.save()
+
+$e:=ds.Employee.new()
+$e.FirstName:="Jane"
+$e.LastName:="Doe"
+$e.objectField:=New object("0"; "dolor"; "2"; "sit"; "7"; "amet")
+$e.save()
+```
+ with `objectField` in input control
+
+```json
+{
+    "type": [ "text" ],
+    "choiceList": {
+      "dataSource": {
+        "field": "objectField",
+        "currentEntity": true
+      }
+    },
+    "name": "EmployeeObjectField",
+    "format": "push"
+ }
+```
+
+we could select different values according to data inside entities
+
+https://github.com/4d-go-mobile/sdk/assets/129385512/d86a05d1-a5ea-4806-ba6b-2ba2b740344c
+
