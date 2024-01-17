@@ -16,8 +16,8 @@ We could fill using an object
 var $entity: cs.ATable
 ...
 $entity.aChoiceObjectField:=New Object(\
-"One"; 1;\
-"Two"; 2\
+"1"; "One Label";\
+"2"; "Two Label"\
 )
 ```
 
